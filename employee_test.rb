@@ -47,6 +47,13 @@ class EmployeeReviewTest < Minitest::Test
   end
 
 
+  def test_department_add_to_department_directory
+    department = Department.new("Human Resources")
+    assert department.assign_dep(department)
+#p department.assign_dep(department)
+  end
+
+
   def test_employee_added_to_a_department
     department = Department.new("Human Resources")
     employee = Employee.new("Danai", "danai@live.com", "307-555-5555", 100)
@@ -72,6 +79,16 @@ class EmployeeReviewTest < Minitest::Test
     assert_equal 100 , department.get_salary(staff)
   end
 
+  def test_can_get_employee_salary_from_department
+    department = Department.new("Human Resources")
+    employee = Employee.new("Danai", "danai@live.com", "307-555-5555", 100)
+    staff = department.assign(employee)
+    #p staff
+    assert_equal 100 , department.get_salary(staff)
+  end
+
+
+  
 
 
 
