@@ -50,19 +50,31 @@ class EmployeeReviewTest < Minitest::Test
   def test_employee_added_to_a_department
     department = Department.new("Human Resources")
     employee = Employee.new("Danai", "danai@live.com", "307-555-5555", 100)
-    assert employee.assign(employee)
-  #  p employee.assign(employee)
+    assert department.assign(employee)
+  #  p department.assign(employee)
   end
 
-
+# is this right????
   def test_can_get_employee_name_from_department
     department = Department.new("Human Resources")
     employee = Employee.new("Danai", "danai@live.com", "307-555-5555", 100)
-    staff = employee.assign(employee)
+    staff = department.assign(employee)
     #p staff
-    assert_equal "Danai", staff[0].a_method(staff).name
-    p staff[0].a_method(staff).name
+    assert_equal "Danai", department.get_name(staff)
   end
+
+
+  def test_can_get_employee_salary_from_department
+    department = Department.new("Human Resources")
+    employee = Employee.new("Danai", "danai@live.com", "307-555-5555", 100)
+    staff = department.assign(employee)
+    #p staff
+    assert_equal 100 , department.get_salary(staff)
+  end
+
+
+
+
 
 
 
