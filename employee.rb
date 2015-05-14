@@ -6,6 +6,13 @@ class Employee
     @email = email
     @phone_number = phone_number
     @salary = salary
+    @department_staff = []
+
+  end
+
+  def assign (department)
+    @department_staff << department
+    
 
   end
 
