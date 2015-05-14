@@ -22,31 +22,28 @@ class EmployeeReviewTest < Minitest::Test
   end
 
 
-  def test_employee_had_name_email_phone_and_salary
+  def test_employee_has_name_email_phone_and_salary
     assert Employee.new("Danai", "danai@live.com", "307-555-5555", 100)
   end
 
 
   def test_employee_knows_name
-    assert "Danai", Employee.new("Danai", "danai@live.com", "307-555-5555",100).name
-    # assert "danai@live.com", Employee.new("danai@live.com").email
-    # assert "307-555-5555", Employee.new("307-555-5555").phone_number
-    # assert 100, Employee.new(100).salary
+    assert_equal "Danai", Employee.new("Danai", "danai@live.com", "307-555-5555",100).name
   end
 
 
   def test_employee_knows_email
-    assert "danai@live.com", Employee.new("Danai", "danai@live.com", "307-555-5555",100).email
+    assert_equal "danai@live.com", Employee.new("Danai", "danai@live.com", "307-555-5555",100).email
   end
 
 
   def test_employee_knows_phone_nuber
-    assert "307-555-5555", Employee.new("Danai", "danai@live.com", "307-555-5555",100).phone_number
+    assert_equal "307-555-5555", Employee.new("Danai", "danai@live.com", "307-555-5555",100).phone_number
   end
 
 
   def test_employee_knows_salary
-    assert 100, Employee.new("Danai", "danai@live.com", "307-555-5555",100).salary
+    assert_equal 100, Employee.new("Danai", "danai@live.com", "307-555-5555",100).salary
   end
 
 
@@ -62,9 +59,12 @@ class EmployeeReviewTest < Minitest::Test
     department = Department.new("Human Resources")
     employee = Employee.new("Danai", "danai@live.com", "307-555-5555", 100)
     staff = employee.assign(employee)
-    assert staff.method(input?)
-
+    #p staff
+    assert_equal "Danai", staff[0].a_method(staff).name
+    p staff[0].a_method(staff).name
   end
+
+
 
 
 

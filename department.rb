@@ -5,5 +5,6 @@ class Department
     @name = name
   end
 
+  
 
 end
