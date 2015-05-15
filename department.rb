@@ -27,7 +27,15 @@ class Department < Employee
   end
 
 
-  def department_wide_raise
+  def department_wide_raise(amount)
+
+    @department_staff.each {|employee|
+
+       employee.salary += amount
+
+
+    }
+
 
   end
 
