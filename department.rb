@@ -1,5 +1,5 @@
-class Department
-  attr_reader :name ,:department_staff
+class Department < Employee
+  attr_reader :name, :department_staff
 
   def initialize(name)
     @name = name
@@ -12,12 +12,22 @@ class Department
   # end
 
 
-
   def assign(employee)
-
     @department_staff << employee
+  end
 
 
+  def add_salary
+    total_salary = 0
+    @department_staff.each {|employee|
+       total_salary += employee.salary
+      }
+
+    total_salary
+  end
+
+
+  def give_raise
 
   end
 
@@ -25,19 +35,7 @@ class Department
 
 
 
-  def get_name(get_a_name)
-    get_a_name[0].name
-  end
 
-
-  # def get_salary(get_a_salary)
-  #   get_a_salary[0].salary
-  # end
-  #
-  # def add_salary(arguement )
-  #   arguement[3]
-  #
-  # end
 
 
 
