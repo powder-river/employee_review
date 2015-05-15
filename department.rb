@@ -27,9 +27,11 @@ class Department < Employee
   end
 
 
-  def give_raise
+  def department_wide_raise
 
   end
+
+
 
 
 

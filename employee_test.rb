@@ -25,16 +25,16 @@ class EmployeeReviewTest < Minitest::Test
 
 
   def test_employee_has_name_email_phone_and_salary
-    assert danai = Employee.new("Danai", "danai@live.com", "307-555-5555", 100)
-    assert anna = Employee.new("Anna", "anna@live.com", "919-555-5555", 5000)
-    assert turner = Employee.new("Turner", "turner@live.com", "303-555-5555", 500)
+    assert danai = Employee.new(name: "Danai",email: "danai@live.com",   phone_number: "307-555-5555", salary: 100)
+    assert anna = Employee.new(name: "Anna",email: "anna@live.com",   phone_number: "919-555-5555", salary: 5000)
+    assert turner = Employee.new(name: "Turner", email: "turner@live.com", phone_number: "303-555-5555", salary: 500)
   end
 
 
   def test_employee_knows_name
-    danai = Employee.new("Danai", "danai@live.com", "307-555-5555", 100)
-    anna = Employee.new("Anna", "anna@live.com", "919-555-5555", 5000)
-    turner = Employee.new("Turner", "turner@live.com", "303-555-5555", 500)
+    danai = Employee.new(name: "Danai",email: "danai@live.com",   phone_number: "307-555-5555", salary: 100)
+    anna = Employee.new(name: "Anna",email: "anna@live.com",   phone_number: "919-555-5555", salary: 5000)
+    turner = Employee.new(name: "Turner", email: "turner@live.com", phone_number: "303-555-5555", salary: 500)
 
     assert_equal "Danai",  danai.name
     assert_equal "Anna",   anna.name
@@ -66,9 +66,9 @@ class EmployeeReviewTest < Minitest::Test
 
   def test_employee_added_to_a_human_resources
     human_resources =  Department.new("Human Resources")
-    danai   = Employee.new("Danai", "danai@live.com", "307-555-5555", 100)
-    anna  =  Employee.new("Anna", "anna@live.com", "919-555-5555", 5000)
-    turner  =  Employee.new("Turner", "turner@live.com", "303-555-5555", 500)
+    danai = Employee.new(name: "Danai",email: "danai@live.com",   phone_number: "307-555-5555", salary: 100)
+    anna = Employee.new(name: "Anna",email: "anna@live.com",   phone_number: "919-555-5555", salary: 5000)
+    turner = Employee.new(name: "Turner", email: "turner@live.com", phone_number: "303-555-5555", salary: 500)
 
     assert human_resources.assign(danai)
     assert human_resources.assign(anna)
@@ -81,9 +81,9 @@ class EmployeeReviewTest < Minitest::Test
 # is this right???? this needs some work. i feel some extraneous code
   def test_can_get_employee_name_from_human_resources
     human_resources = Department.new("Human Resources")
-    danai  = Employee.new("Danai", "danai@live.com", "307-555-5555", 100)
-    anna  = Employee.new("Anna", "anna@live.com", "919-555-5555", 5000)
-    turner  = Employee.new("Turner", "turner@live.com", "303-555-5555", 500)
+    danai = Employee.new(name: "Danai",email: "danai@live.com",   phone_number: "307-555-5555", salary: 100)
+    anna = Employee.new(name: "Anna",email: "anna@live.com",   phone_number: "919-555-5555", salary: 5000)
+    turner = Employee.new(name: "Turner", email: "turner@live.com", phone_number: "303-555-5555", salary: 500)
 
     human_resources.assign(danai)
     human_resources.assign(anna)
@@ -98,9 +98,9 @@ class EmployeeReviewTest < Minitest::Test
 
   def test_can_get_employee_salary_from_human_resources
     human_resources = Department.new("Human Resources")
-    danai  = Employee.new("Danai", "danai@live.com", "307-555-5555", 100)
-    anna  = Employee.new("Anna", "anna@live.com", "919-555-5555", 5000)
-    turner  = Employee.new("Turner", "turner@live.com", "303-555-5555", 500)
+    danai = Employee.new(name: "Danai",email: "danai@live.com",   phone_number: "307-555-5555", salary: 100)
+    anna = Employee.new(name: "Anna",email: "anna@live.com",   phone_number: "919-555-5555", salary: 5000)
+    turner = Employee.new(name: "Turner", email: "turner@live.com", phone_number: "303-555-5555", salary: 500)
 
     assert human_resources.assign(danai)
     assert human_resources.assign(anna)
@@ -115,9 +115,9 @@ class EmployeeReviewTest < Minitest::Test
 
   def test_can_get_total_salary_of_employees
     human_resources = Department.new("Human Resources")
-    danai   = Employee.new("Danai", "danai@live.com", "307-555-5555", 100)
-    anna  = Employee.new("Anna", "anna@live.com", "919-555-5555", 5000)
-    turner  = Employee.new("Turner", "turner@live.com", "303-555-5555", 500)
+    danai = Employee.new(name: "Danai",email: "danai@live.com",   phone_number: "307-555-5555", salary: 100)
+    anna = Employee.new(name: "Anna",email: "anna@live.com",   phone_number: "919-555-5555", salary: 5000)
+    turner = Employee.new(name: "Turner", email: "turner@live.com", phone_number: "303-555-5555", salary: 500)
 
     assert human_resources.assign(danai)
     assert human_resources.assign(anna)
@@ -127,30 +127,44 @@ class EmployeeReviewTest < Minitest::Test
   end
 
 
-  # def test_emplyoee_is_good_or_not
-  #   human_resources = Department.new("Human Resources")
-  #   danai   = Employee.new("Danai", "danai@live.com", "307-555-5555", 100)
-  #   anna  = Employee.new("Anna", "anna@live.com", "919-555-5555", 5000)
-  #   turner  = Employee.new("Turner", "turner@live.com", "303-555-5555", 500)
-  #
-  #   assert human_resources.assign(danai)
-  #   assert human_resources.assign(anna)
-  #   assert human_resources.assign(turner)
-  #
-  #
-  # end
+  def test_emplyoee_is_good_or_not
+    human_resources = Department.new("Human Resources")
+    danai = Employee.new(name: "Danai",email: "danai@live.com",   phone_number: "307-555-5555", salary: 100)
+    anna = Employee.new(name: "Anna",email: "anna@live.com",   phone_number: "919-555-5555", salary: 5000)
+    turner = Employee.new(name: "Turner", email: "turner@live.com", phone_number: "303-555-5555", salary: 500)
+
+    assert human_resources.assign(danai)
+    assert human_resources.assign(anna)
+    assert human_resources.assign(turner)
+
+
+  end
 
 
   def test_review_given_to_employees
-    danai   = Employee.new("Danai", "danai@live.com", "307-555-5555", 100)
+    danai = Employee.new(name: "Danai",email: "danai@live.com",   phone_number: "307-555-5555", salary: 100)
     danai.add_review("yeah we should explore other options")
     assert_equal "yeah we should explore other options", danai.review[0]
   end
 
 
-  def test_give_raise_to_employee
+  def test_employee_good_or_bad
+    danai = Employee.new(name: "Danai",email: "danai@live.com",   phone_number: "307-555-5555", salary: 100)
 
+    assert_equal "Good", danai.good_or_bad("Good")
   end
+
+
+  def test_give_raise_to_employee
+    turner = Employee.new(name: "Turner", email: "turner@live.com", phone_number: "303-555-5555", salary: 500)
+    assert_equal 800, turner.give_raise(300)
+  end
+
+
+
+
+
+
 
 
 

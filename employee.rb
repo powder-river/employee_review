@@ -1,7 +1,7 @@
 class Employee
   attr_reader :name, :email, :phone_number, :salary, :review
 
-  def initialize(name, email, phone_number, salary)
+  def initialize(name:, email:, phone_number:, salary:)
     @name = name
     @email = email
     @phone_number = phone_number
@@ -19,6 +19,13 @@ class Employee
   end
 
 
+  def good_or_bad (verdict)
+    verdict
+  end
+
+  def give_raise(amount)
+    @salary += amount
+  end
 
 
 
