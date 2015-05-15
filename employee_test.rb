@@ -167,17 +167,23 @@ def test_give_department_wide_raises
   anna = Employee.new(name: "Anna",email: "anna@live.com",   phone_number: "919-555-5555", salary: 5000)
   turner = Employee.new(name: "Turner", email: "turner@live.com", phone_number: "303-555-5555", salary: 500)
 
+  danai.good_or_bad("Good")
+  anna.good_or_bad("Bad")
+  turner.good_or_bad("Good")
+
   assert human_resources.assign(danai)
   assert human_resources.assign(anna)
   assert human_resources.assign(turner)
 
   human_resources.department_wide_raise(100)
 
-  assert_equal 200, danai.salary
-  assert_equal 5100, anna.salary
-  assert_equal 600, turner.salary
-  p danai.salary
+  assert_equal 150, danai.salary
+  assert_equal 5000, anna.salary
+  assert_equal 550, turner.salary
 end
+
+
+
 
 
 

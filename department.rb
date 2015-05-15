@@ -30,11 +30,14 @@ class Department < Employee
   def department_wide_raise(amount)
 
     @department_staff.each {|employee|
-
-       employee.salary += amount
+      if employee.verdict == "Good"
+        #better way to do this below instead of /2
+       employee.salary += amount/2
+     end
 
 
     }
+
 
 
   end

@@ -1,5 +1,5 @@
 class Employee
-  attr_reader :name, :email, :phone_number, :review
+  attr_reader :name, :email, :phone_number, :review, :verdict
   attr_accessor :salary
 
   def initialize(name:, email:, phone_number:, salary:)
@@ -21,7 +21,8 @@ class Employee
 
 
   def good_or_bad (verdict)
-    verdict
+      verdict
+      @verdict = verdict
   end
 
   def give_raise(amount)
