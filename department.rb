@@ -32,7 +32,10 @@ class Department < Employee
     @department_staff.each {|employee|
       if employee.verdict == "Good"
         #better way to do this below instead of /2
-       employee.salary += amount/2
+        #in other words need away to say amount/number of good employees
+        good_kids = @department_staff.reject {|n| ["Bad"].include?(n)}
+        byebug
+       employee.salary += amount/good_kids.count #on the right track with this
      end
 
 

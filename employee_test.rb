@@ -40,29 +40,26 @@ class EmployeeReviewTest < Minitest::Test
     assert_equal "Anna",   anna.name
     assert_equal "Turner", turner.name
   end
-  #
-  #
-  # def test_employee_knows_email
-  #   assert_equal "danai@live.com", Employee.new("Danai", "danai@live.com", "307-555-5555",100).email
-  # end
-  #
-  #
-  # def test_employee_knows_phone_nuber
-  #   assert_equal "307-555-5555", Employee.new("Danai", "danai@live.com", "307-555-5555",100).phone_number
-  # end
-  #
-  #
-  # def test_employee_knows_salary
-  #   assert_equal 100, Employee.new("Danai", "danai@live.com", "307-555-5555",100).salary
-  # end
-
-#===============================================================================
-#   def test_human_resources_add_to_human_resources_directory
-#     human_resources = human_resources.new("Human Resources")
-#     assert human_resources.assign_dep(human_resources)
-# #p human_resources.assign_dep(human_resources)
+#
+# ===============================================================================
+# =>                      CODE THAT DOES SIMILAR TO ABOVE
+#
+#   def test_employee_knows_email
+#     assert_equal "danai@live.com", Employee.new("Danai", "danai@live.com", "307-555-5555",100).email
 #   end
-#===============================================================================
+#
+#
+#   def test_employee_knows_phone_nuber
+#     assert_equal "307-555-5555", Employee.new("Danai", "danai@live.com", "307-555-5555",100).phone_number
+#   end
+#
+#
+#   def test_employee_knows_salary
+#     assert_equal 100, Employee.new("Danai", "danai@live.com", "307-555-5555",100).salary
+#   end
+#
+# ===============================================================================
+
 
   def test_employee_added_to_a_human_resources
     human_resources =  Department.new("Human Resources")
