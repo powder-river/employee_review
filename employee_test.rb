@@ -124,7 +124,7 @@ class EmployeeReviewTest < Minitest::Test
   end
 
 
-  def test_emplyoee_is_good_or_not
+  def test_uhhh_wait_what_was_this_test_for_again?
     human_resources = Department.new("Human Resources")
     danai = Employee.new(name: "Danai",email: "danai@live.com",   phone_number: "307-555-5555", salary: 100)
     anna = Employee.new(name: "Anna",email: "anna@live.com",   phone_number: "919-555-5555", salary: 5000)
@@ -144,12 +144,42 @@ class EmployeeReviewTest < Minitest::Test
     assert_equal "yeah we should explore other options", danai.review[0]
   end
 
+  #==============WORKING=========================================
+  # def test_employee_good_or_bad
+  #   danai = Employee.new(name: "Danai",email: "danai@live.com",   phone_number: "307-555-5555", salary: 100)
+  #
+  #   assert_equal "Good", danai.good_or_bad("Good")
+  # end
+#===================================================================
 
-  def test_employee_good_or_bad
-    danai = Employee.new(name: "Danai",email: "danai@live.com",   phone_number: "307-555-5555", salary: 100)
 
-    assert_equal "Good", danai.good_or_bad("Good")
-  end
+
+
+def test_employee_good_or_bad
+   danai = Employee.new(name: "Danai",email: "danai@live.com",   phone_number: "307-555-5555", salary: 100)
+   anna = Employee.new(name: "Anna",email: "anna@live.com",   phone_number: "919-555-5555", salary: 5000)
+   turner = Employee.new(name: "Turner", email: "turner@live.com", phone_number: "303-555-5555", salary: 500)
+
+   danai_review = danai.add_review("danai is a lazy employee")
+   danai_review = danai_review.join
+   danai_review = danai_review.scan(/danai/)
+
+   if danai_review.include?("danai")
+      danai_review = ("Good")
+    else
+      danai_review = ("Bad")
+   end
+   danai.good_or_bad(danai_review)
+
+   #anna_review = anna.add_review
+
+   assert_equal "Good", danai_review
+  # byebug
+ end
+
+
+
+
 
 
   def test_give_raise_to_employee
@@ -164,7 +194,10 @@ def test_give_department_wide_raises
   anna = Employee.new(name: "Anna",email: "anna@live.com",   phone_number: "919-555-5555", salary: 500)
   turner = Employee.new(name: "Turner", email: "turner@live.com", phone_number: "303-555-5555", salary: 500)
 
-  danai.good_or_bad("bad")
+
+
+  danai.good_or_bad("Good")
+  #byebug
   anna.good_or_bad("Good")
   turner.good_or_bad("Good")
 

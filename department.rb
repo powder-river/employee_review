@@ -26,7 +26,7 @@ class Department < Employee
   def department_wide_raise(amount)
     good_employee = @department_staff.select{|employee|yield(employee)
           employee.verdict == "Good" && employee.salary < 2000}
-
+#byebug
     good_employee.each {|employee| employee.salary += amount/good_employee.count}
 
   end
